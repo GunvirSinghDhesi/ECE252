@@ -4,20 +4,20 @@
 
 ```bash
 # Basic SSH command
-ssh username@hostname_or_ip
+ssh gdhesi@hostname_or_ip
 
 # Example:
 ssh student@linux.student.cs.uwaterloo.ca
 
 # With identity file (if needed)
-ssh -i /path/to/private_key.pem username@host
+ssh -i /path/to/private_key.pem gdhesi@host
 ```
 
 ## 📁 Transferring Files with `scp`
 
 ```bash
 # Copy file from local to remote
-scp file.txt username@host:/remote/path
+scp file.txt gdhesi@host:/remote/path
 
 # Copy file from remote to local
 scp username@host:/remote/file.txt /local/path
