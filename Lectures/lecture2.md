@@ -60,6 +60,51 @@ valgrind your_program
 - **Microkernel**: Minimal kernel space, with most services in user space (e.g., MINIX)
 
 ---
+### 📇 What is an i-node?
+
+An **i-node** (short for **index node**) is a **data structure used by UNIX-like file systems** to store **metadata** about a file or directory — *not* the file content or name.
+
+---
+
+### 📦 What’s in an i-node?
+
+An i-node typically contains:
+
+| Field                   | Description |
+|------------------------|-------------|
+| **File type**          | Regular file, directory, symbolic link, etc. |
+| **Permissions**        | Read, write, execute for user, group, and others |
+| **Owner ID (UID)**     | Who owns the file |
+| **Group ID (GID)**     | Group that owns the file |
+| **Timestamps**         | Last access, last modification, last status change |
+| **Size**               | File size in bytes |
+| **Block count**        | How many disk blocks the file uses |
+| **Block pointers**     | Addresses of the data blocks that contain the file's content |
+| **Link count**         | Number of hard links to the file (i.e., how many names point to this i-node) |
+
+---
+
+### 🧠 Key Points
+
+- Each file has a unique i-node **number** within a file system.
+- Directories are special files that map **file names to i-node numbers**.
+- The **file name is *not* stored in the i-node** — it's stored in the directory that references the i-node.
+
+---
+
+### 🧾 Example: `ls -li`
+
+```bash
+$ ls -li file.txt
+123456 -rw-r--r-- 1 user user 42 May 15 14:00 file.txt
+```
+
+- `123456` is the **i-node number**.
+- This file’s metadata is stored in i-node `123456`.
+- The content is in disk blocks pointed to by that i-node.
+
+
+---
 
 ## ⚠️ Handling Exceptions (Interrupts and Traps)
 
